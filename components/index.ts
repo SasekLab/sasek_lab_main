@@ -1,0 +1,20 @@
+export { default as Header } from './Header';
+export { default as Hero } from './Hero';
+export { default as Stats } from './Stats';
+export { default as ClientWins } from './ClientWins';
+export { default as StartupPartner } from './StartupPartner';
+export { default as Service2 } from './Service2';
+export { default as CaseStudies } from './CaseStudies';
+export { default as Team } from './Team';
+export { default as Priority } from './Priority';
+export { default as Process } from './Process';
+export { default as Testimonials } from './Testimonials';
+export { default as Contact } from './Contact';
+export { default as Footer } from './Footer';
+export { default as InteractiveNet } from './InteractiveNet';
+export { default as LazySection } from './LazySection';
+export { default as ImageComponent } from './ImageComponent';
+
+// Service Components
+export * from './ServiceIcons';
+export * from './ServiceBackgrounds';

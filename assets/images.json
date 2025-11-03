@@ -1,0 +1,535 @@
+{
+  "manifest": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-10-19",
+    "description": "SASEK Labs Homepage Image and Logo Manifest",
+    "baseUrl": "/assets/images",
+    "fallbackStrategy": "placeholder"
+  },
+  "images": {
+    "hero": {
+      "animation": {
+        "id": "hero-3d-animation",
+        "placeholder": "3D Animation Placeholder",
+        "suggestedPath": "/hero/3d-animation.webp",
+        "alt": "3D Animation showcasing SASEK Labs digital transformation capabilities",
+        "type": "illustration",
+        "priority": "high",
+        "dimensions": {
+          "width": 800,
+          "height": 600
+        },
+        "formats": ["webp", "mp4"],
+        "notes": "Hero section 3D animation or interactive element"
+      }
+    },
+    "logos": {
+      "footer": {
+        "id": "footer-logo",
+        "placeholder": "[FOOTER-LOGO]",
+        "suggestedPath": "/logos/sasek-labs-logo.svg",
+        "alt": "SASEK Labs Logo",
+        "type": "logo",
+        "priority": "high",
+        "dimensions": {
+          "width": 200,
+          "height": 60
+        },
+        "formats": ["svg", "png"],
+        "notes": "Main company logo used in footer"
+      }
+    },
+    "clients": {
+      "clientLogo1": {
+        "id": "client-logo-tech-startup",
+        "placeholder": "[CLIENT-LOGO-1]",
+        "clientName": "Tech Startup",
+        "suggestedPath": "/clients/tech-startup-logo.svg",
+        "alt": "Tech Startup Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for technology startup company"
+      },
+      "clientLogo2": {
+        "id": "client-logo-ecommerce",
+        "placeholder": "[CLIENT-LOGO-2]",
+        "clientName": "E-commerce Platform",
+        "suggestedPath": "/clients/ecommerce-platform-logo.svg",
+        "alt": "E-commerce Platform Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for e-commerce platform"
+      },
+      "clientLogo3": {
+        "id": "client-logo-financial",
+        "placeholder": "[CLIENT-LOGO-3]",
+        "clientName": "Financial Services",
+        "suggestedPath": "/clients/financial-services-logo.svg",
+        "alt": "Financial Services Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for financial services company"
+      },
+      "clientLogo4": {
+        "id": "client-logo-healthcare",
+        "placeholder": "[CLIENT-LOGO-4]",
+        "clientName": "Healthcare Provider",
+        "suggestedPath": "/clients/healthcare-provider-logo.svg",
+        "alt": "Healthcare Provider Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for healthcare provider"
+      },
+      "clientLogo5": {
+        "id": "client-logo-manufacturing",
+        "placeholder": "[CLIENT-LOGO-5]",
+        "clientName": "Manufacturing Company",
+        "suggestedPath": "/clients/manufacturing-company-logo.svg",
+        "alt": "Manufacturing Company Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for manufacturing company"
+      },
+      "clientLogo6": {
+        "id": "client-logo-retail",
+        "placeholder": "[CLIENT-LOGO-6]",
+        "clientName": "Retail Chain",
+        "suggestedPath": "/clients/retail-chain-logo.svg",
+        "alt": "Retail Chain Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for retail chain"
+      },
+      "clientLogo7": {
+        "id": "client-logo-professional",
+        "placeholder": "[CLIENT-LOGO-7]",
+        "clientName": "Professional Services",
+        "suggestedPath": "/clients/professional-services-logo.svg",
+        "alt": "Professional Services Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for professional services firm"
+      },
+      "clientLogo8": {
+        "id": "client-logo-education",
+        "placeholder": "[CLIENT-LOGO-8]",
+        "clientName": "Education Platform",
+        "suggestedPath": "/clients/education-platform-logo.svg",
+        "alt": "Education Platform Client Logo",
+        "type": "client-logo",
+        "priority": "medium",
+        "dimensions": {
+          "width": 120,
+          "height": 80
+        },
+        "formats": ["svg", "png"],
+        "notes": "Client logo for education platform"
+      }
+    },
+    "services": {
+      "websites3d": {
+        "id": "service-icon-3d-websites",
+        "placeholder": "[ICON-3D-WEBSITES]",
+        "suggestedPath": "/services/3d-websites-icon.svg",
+        "alt": "3D Website Development Service Icon",
+        "type": "service-icon",
+        "priority": "high",
+        "dimensions": {
+          "width": 64,
+          "height": 64
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for 3D website development service"
+      },
+      "aiAutomation": {
+        "id": "service-icon-ai-automation",
+        "placeholder": "[ICON-AI-AUTOMATION]",
+        "suggestedPath": "/services/ai-automation-icon.svg",
+        "alt": "AI Automation Service Icon",
+        "type": "service-icon",
+        "priority": "high",
+        "dimensions": {
+          "width": 64,
+          "height": 64
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for AI automation service"
+      }
+    },
+    "values": {
+      "innovation": {
+        "id": "value-icon-innovation",
+        "placeholder": "[ICON-INNOVATION]",
+        "suggestedPath": "/values/innovation-icon.svg",
+        "alt": "Innovation Value Icon",
+        "type": "value-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon representing innovation-first approach"
+      },
+      "global": {
+        "id": "value-icon-global",
+        "placeholder": "[ICON-GLOBAL]",
+        "suggestedPath": "/values/global-standards-icon.svg",
+        "alt": "Global Standards Value Icon",
+        "type": "value-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon representing global standards"
+      },
+      "local": {
+        "id": "value-icon-local",
+        "placeholder": "[ICON-LOCAL]",
+        "suggestedPath": "/values/local-expertise-icon.svg",
+        "alt": "Local Expertise Value Icon",
+        "type": "value-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon representing local expertise"
+      },
+      "results": {
+        "id": "value-icon-results",
+        "placeholder": "[ICON-RESULTS]",
+        "suggestedPath": "/values/results-driven-icon.svg",
+        "alt": "Results-Driven Value Icon",
+        "type": "value-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon representing results-driven solutions"
+      },
+      "partnership": {
+        "id": "value-icon-partnership",
+        "placeholder": "[ICON-PARTNERSHIP]",
+        "suggestedPath": "/values/partnership-icon.svg",
+        "alt": "Partnership Value Icon",
+        "type": "value-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon representing end-to-end partnership"
+      }
+    },
+    "process": {
+      "discovery": {
+        "id": "process-icon-discovery",
+        "placeholder": "[ICON-DISCOVERY]",
+        "suggestedPath": "/process/discovery-icon.svg",
+        "alt": "Discovery Process Icon",
+        "type": "process-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for discovery and strategy phase"
+      },
+      "design": {
+        "id": "process-icon-design",
+        "placeholder": "[ICON-DESIGN]",
+        "suggestedPath": "/process/design-icon.svg",
+        "alt": "Design Process Icon",
+        "type": "process-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for design and development phase"
+      },
+      "launch": {
+        "id": "process-icon-launch",
+        "placeholder": "[ICON-LAUNCH]",
+        "suggestedPath": "/process/launch-icon.svg",
+        "alt": "Launch Process Icon",
+        "type": "process-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for launch and optimization phase"
+      },
+      "growth": {
+        "id": "process-icon-growth",
+        "placeholder": "[ICON-GROWTH]",
+        "suggestedPath": "/process/growth-icon.svg",
+        "alt": "Growth Process Icon",
+        "type": "process-icon",
+        "priority": "medium",
+        "dimensions": {
+          "width": 48,
+          "height": 48
+        },
+        "formats": ["svg", "png"],
+        "notes": "Icon for growth and scaling phase"
+      },
+      "diagram": {
+        "id": "process-diagram",
+        "placeholder": "Process Diagram/Infographic Placeholder",
+        "suggestedPath": "/process/process-diagram.svg",
+        "alt": "SASEK Labs Process Diagram",
+        "type": "illustration",
+        "priority": "medium",
+        "dimensions": {
+          "width": 600,
+          "height": 400
+        },
+        "formats": ["svg", "png", "webp"],
+        "notes": "Visual representation of 4-step process"
+      }
+    },
+    "team": {
+      "teamPhotoMain": {
+        "id": "team-photo-main",
+        "placeholder": "[TEAM-PHOTO-MAIN]",
+        "suggestedPath": "/team/team-collaboration.jpg",
+        "alt": "SASEK Labs Team Collaboration",
+        "type": "photograph",
+        "priority": "medium",
+        "dimensions": {
+          "width": 400,
+          "height": 300
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Team collaboration shot showing multiple team members working together"
+      },
+      "teamPhotoOffice": {
+        "id": "team-photo-office",
+        "placeholder": "[TEAM-PHOTO-OFFICE]",
+        "suggestedPath": "/team/office-workspace.jpg",
+        "alt": "SASEK Labs Office Workspace",
+        "type": "photograph",
+        "priority": "medium",
+        "dimensions": {
+          "width": 400,
+          "height": 300
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Office workspace environment photo"
+      },
+      "teamMember1": {
+        "id": "team-member-1",
+        "placeholder": "[TEAM-MEMBER-1]",
+        "suggestedPath": "/team/team-member-1.jpg",
+        "alt": "SASEK Labs Team Member",
+        "type": "headshot",
+        "priority": "low",
+        "dimensions": {
+          "width": 150,
+          "height": 150
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Individual team member headshot"
+      },
+      "teamMember2": {
+        "id": "team-member-2",
+        "placeholder": "[TEAM-MEMBER-2]",
+        "suggestedPath": "/team/team-member-2.jpg",
+        "alt": "SASEK Labs Team Member",
+        "type": "headshot",
+        "priority": "low",
+        "dimensions": {
+          "width": 150,
+          "height": 150
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Individual team member headshot"
+      },
+      "teamMember3": {
+        "id": "team-member-3",
+        "placeholder": "[TEAM-MEMBER-3]",
+        "suggestedPath": "/team/team-member-3.jpg",
+        "alt": "SASEK Labs Team Member",
+        "type": "headshot",
+        "priority": "low",
+        "dimensions": {
+          "width": 150,
+          "height": 150
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Individual team member headshot"
+      }
+    },
+    "testimonials": {
+      "testimonialAvatar1": {
+        "id": "testimonial-avatar-1",
+        "placeholder": "[TESTIMONIAL-1-AVATAR]",
+        "suggestedPath": "/testimonials/client-avatar-1.jpg",
+        "alt": "Business Owner Testimonial Avatar",
+        "type": "avatar",
+        "priority": "medium",
+        "dimensions": {
+          "width": 80,
+          "height": 80
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Avatar for business owner testimonial from Africa"
+      },
+      "testimonialAvatar2": {
+        "id": "testimonial-avatar-2",
+        "placeholder": "[TESTIMONIAL-2-AVATAR]",
+        "suggestedPath": "/testimonials/client-avatar-2.jpg",
+        "alt": "Marketing Director Testimonial Avatar",
+        "type": "avatar",
+        "priority": "medium",
+        "dimensions": {
+          "width": 80,
+          "height": 80
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Avatar for marketing director testimonial from Europe"
+      },
+      "testimonialAvatar3": {
+        "id": "testimonial-avatar-3",
+        "placeholder": "[TESTIMONIAL-3-AVATAR]",
+        "suggestedPath": "/testimonials/client-avatar-3.jpg",
+        "alt": "CEO Testimonial Avatar",
+        "type": "avatar",
+        "priority": "medium",
+        "dimensions": {
+          "width": 80,
+          "height": 80
+        },
+        "formats": ["webp", "jpg"],
+        "notes": "Avatar for CEO testimonial from Global Food Chain"
+      }
+    },
+    "contact": {
+      "emailIcon": {
+        "id": "contact-icon-email",
+        "placeholder": "[ICON]",
+        "suggestedPath": "/contact/email-icon.svg",
+        "alt": "Email Contact Icon",
+        "type": "contact-icon",
+        "priority": "low",
+        "dimensions": {
+          "width": 24,
+          "height": 24
+        },
+        "formats": ["svg"],
+        "notes": "Email icon for contact section"
+      },
+      "locationIcon": {
+        "id": "contact-icon-location",
+        "placeholder": "[ICON]",
+        "suggestedPath": "/contact/location-icon.svg",
+        "alt": "Location Contact Icon",
+        "type": "contact-icon",
+        "priority": "low",
+        "dimensions": {
+          "width": 24,
+          "height": 24
+        },
+        "formats": ["svg"],
+        "notes": "Location icon for contact section"
+      }
+    },
+    "generic": {
+      "defaultIcon": {
+        "id": "generic-default-icon",
+        "placeholder": "[ICON]",
+        "suggestedPath": "/generic/default-icon.svg",
+        "alt": "Default Icon",
+        "type": "generic-icon",
+        "priority": "low",
+        "dimensions": {
+          "width": 24,
+          "height": 24
+        },
+        "formats": ["svg"],
+        "notes": "Default icon used in multiple places as fallback"
+      }
+    }
+  },
+  "guidelines": {
+    "imageOptimization": {
+      "formats": ["webp", "avif", "jpg", "png", "svg"],
+      "compression": "high",
+      "responsive": true,
+      "lazyLoading": true,
+      "altTextRequired": true
+    },
+    "namingConventions": {
+      "useKebabCase": true,
+      "includePurpose": true,
+      "includeSize": false,
+      "examples": [
+        "hero-3d-animation.webp",
+        "client-tech-startup-logo.svg",
+        "team-member-1-150x150.webp"
+      ]
+    },
+    "directoryStructure": {
+      "base": "/assets/images",
+      "subdirectories": [
+        "hero/",
+        "logos/",
+        "clients/",
+        "services/",
+        "values/",
+        "process/",
+        "team/",
+        "testimonials/",
+        "contact/",
+        "generic/"
+      ]
+    }
+  }
+}
