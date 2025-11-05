@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageComponent } from './ImageComponent';
+import ImageComponent from './ImageComponent';
 import { imageLoader } from '../utils/imageLoader';
 
 const ImageTest: React.FC = () => {
