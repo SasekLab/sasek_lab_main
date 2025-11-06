@@ -68,15 +68,7 @@ const Contact = () => {
                     <div>
                         <button type="button" className="px-5 py-3 bg-gray-800 text-sm font-semibold rounded-md hover:bg-gray-700">ATTACH FILE</button>
                     </div>
-                    <div>
-                        <label className="text-xs font-bold text-gray-400">YOUR BUDGET FOR THIS PROJECT?</label>
-                        <div className="mt-4 flex flex-wrap gap-3">
-                            {['UP TO $10K', '$10-$20K', '$20-$50K', '$50-$100K', '>$100K'].map(b => (
-                                <button key={b} type="button" className="px-4 py-2 border border-gray-700 rounded-full text-sm text-white hover:bg-gray-800 focus:bg-white focus:text-black">{b}</button>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
+                        <div>
                         <ShimmerButton type="submit" shimmerColor="#FF6B35" background="#FF6B35" className="px-8 py-4">
                             SUBMIT
                         </ShimmerButton>

@@ -23,16 +23,21 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navLinks = [
         { label: "SERVICES", href: "#services" },
-        { label: "PORTFOLIO", href: "#portfolio" },
-        { label: "ABOUT", href: "#about" },
-        { label: "CONTACT", href: "#contact" }
+        { label: "OUR PORTFOLIO", href: "#portfolio" },
+        { label: "ABOUT SASEK", href: "#about" },
+        { label: "CONTACT US", href: "#contact" }
     ];
     
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-gray-800/50">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex justify-between items-center">
-                <a href="/" className="text-xl font-bold tracking-tight">
-                    <span className="text-brand-orange">SASEK</span> Labs
+                <a href="/" className="flex items-center">
+                    <img
+                        src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16Ae7SQzbPqUQ16AebCoRl0y5Tp3JtaPcrIjgBEw"
+                        alt="SASEK Labs Logo"
+                        className="h-8 w-auto mr-2"
+                    />
+
                 </a>
                 
                 {/* Desktop Navigation */}

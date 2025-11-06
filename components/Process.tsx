@@ -252,9 +252,20 @@ const Process = () => {
                     How We Transform <span className="text-brand-orange">Your Business</span>
                 </h2>
                 
-                {/* [PROCESS-ILLUSTRATION] - Full process diagram/infographic placeholder */}
-                <div className="mt-12 mb-16 bg-gray-800/30 rounded-2xl p-8 flex items-center justify-center min-h-[200px]">
-                    <p className="text-gray-500 text-center">Process Diagram/Infographic Placeholder<br/>Visual representation of 4-step process</p>
+                {/* [PROCESS-ILLUSTRATION] - Full process diagram/infographic */}
+                <div className="mt-12 mb-16 bg-gray-800/30 rounded-2xl p-8 flex items-center justify-center min-h-[200px] overflow-hidden">
+                    {/* Mobile Image */}
+                    <img
+                        src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16Ae4uakGvohOdboWyfcmUYa1BxL7ZGCVgpT2lt4"
+                        alt="Process Diagram - Mobile"
+                        className="block lg:hidden w-full h-auto object-contain"
+                    />
+                    {/* Desktop & Tablet Image */}
+                    <img
+                        src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16AeXjjenO4xjrf4W1B2nCtqQEYD7XbZIMyKsew3"
+                        alt="Process Diagram - Desktop & Tablet"
+                        className="hidden lg:block w-full h-auto object-contain"
+                    />
                 </div>
 
                 <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -16,6 +16,16 @@ html, body {
   font-family: 'Inter', sans-serif;
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add margin-top to sections to account for fixed header */
+#services, #portfolio, #about, #contact, #priority, #team {
+  scroll-margin-top: 80px;
+}
+
 @theme inline {
   --animate-gradient: gradient 8s linear infinite;
   --color-sidebar-ring: var(--sidebar-ring);

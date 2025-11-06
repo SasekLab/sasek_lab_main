@@ -49,8 +49,12 @@ const Hero = () => (
                 <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                     <div className="bg-gray-800/20 p-2 rounded-2xl shadow-2xl" data-animate="slide-right">
                         {/* [HERO-VISUAL] - Main hero background/3D element */}
-                        <div className="bg-gradient-to-br from-brand-orange/20 to-purple-600/20 rounded-xl aspect-video flex items-center justify-center">
-                            <p className="text-gray-500 text-sm">3D Animation Placeholder</p>
+                        <div className="bg-gradient-to-br from-brand-orange/20 to-purple-600/20 rounded-xl aspect-video overflow-hidden">
+                            <img
+                                src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16AeaTMRnGLp2Rges5CdbK9F7yU3IvTNjLuZ1Soz"
+                                alt="3D Animation"
+                                className="w-full h-full object-cover rounded-xl"
+                            />
                         </div>
                     </div>
                     <div className="mt-10 lg:mt-0" data-animate="slide-left">
@@ -63,8 +67,6 @@ const Hero = () => (
                             <span className="text-base sm:text-lg md:text-xl font-bold">Local Expertise</span>
                             <span className="text-sm sm:text-base md:text-lg font-bold">•</span>
                             <span className="text-base sm:text-lg md:text-xl font-bold">Global Standards</span>
-                            <span className="text-sm sm:text-base md:text-lg font-bold">•</span>
-                            <span className="text-xs sm:text-sm font-semibold text-brand-orange">Proven Results</span>
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,6 @@ import React from 'react';
 import { Safari } from './ui/safari';
 import { Iphone } from './ui/iphone';
 
-const ArrowRightIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
-);
 
 const CaseStudies = () => {
     const cases = [
@@ -103,13 +98,7 @@ const CaseStudies = () => {
                         </div>
                     </div>
                 ))}
-                <div className="text-center pt-12">
-                    <p className="text-gray-600 mb-6">View more success stories from businesses worldwide</p>
-                    <a href="#contact" className="text-sm font-bold flex items-center justify-center hover:text-brand-orange transition-colors">
-                        DISCUSS YOUR PROJECT <ArrowRightIcon/>
-                    </a>
-                </div>
-            </div>
+              </div>
         </div>
     );
 };

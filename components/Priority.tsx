@@ -131,7 +131,7 @@ const Priority = () => {
     }, []);
 
     return (
-        <div ref={sectionRef} className="py-16 sm:py-24 bg-white text-black relative overflow-hidden">
+        <div ref={sectionRef} className="py-16 sm:py-24 bg-white text-black relative overflow-hidden" id="priority">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div ref={titleRef}>
                     <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase">WHY CHOOSE SASEK LABS</p>
