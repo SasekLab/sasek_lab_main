@@ -36,6 +36,9 @@ const CaseStudies = () => {
         },
     ];
 
+    // Filter out the Restaurant Chain Automation System case (index 1)
+    const filteredCases = cases.filter((_, index) => index !== 1);
+
     return (
         <div className="py-16 sm:py-24 bg-white text-black space-y-24" id="portfolio">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -45,9 +48,9 @@ const CaseStudies = () => {
                 </h2>
             </div>
             <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-24">
-                {cases.map((c, i) => (
-                    <div key={i} className={`grid lg:grid-cols-2 gap-12 items-center ${i === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
-                        <div className={`${i === 1 ? 'lg:col-start-2' : ''} flex justify-center items-center`} data-animate="slide-up">
+                {filteredCases.map((c, i) => (
+                    <div key={i} className={`grid lg:grid-cols-2 gap-12 items-center ${filteredCases.length === 2 && i === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
+                        <div className={`${filteredCases.length === 2 && i === 1 ? 'lg:col-start-2' : ''} flex justify-center items-center`} data-animate="slide-up">
                             <div className={`w-full mx-auto transform hover:scale-105 transition-transform duration-300 ${c.deviceType === 'safari' ? 'max-w-2xl' : 'max-w-xs'}`}>
                                 {c.deviceType === 'safari' ? (
                                     <Safari
@@ -92,9 +95,6 @@ const CaseStudies = () => {
                                     ))}
                                 </ul>
                             </div>
-                            <a href="#contact" className="mt-8 inline-block px-8 py-3 bg-brand-orange text-white text-sm font-bold rounded-md hover:bg-orange-600 transition-colors">
-                                START YOUR PROJECT
-                            </a>
                         </div>
                     </div>
                 ))}
