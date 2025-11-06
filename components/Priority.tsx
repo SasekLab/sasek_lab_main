@@ -114,7 +114,17 @@ const Priority = () => {
                         duration: 0.8,
                         stagger: 0.04,
                         ease: "back.out(1.4)",
-                        transformPerspective: 1200
+                        transformPerspective: 1200,
+                        onComplete: () => {
+                            // Ensure all characters are visible after animation
+                            gsap.set(titleChars, {
+                                opacity: 1,
+                                y: 0,
+                                rotationX: 0,
+                                scale: 1,
+                                clearProps: "transform,opacity"
+                            });
+                        }
                     }, "-=0.4");
 
                     // Animate orange span specifically with glow
@@ -138,6 +148,21 @@ const Priority = () => {
                         duration: 1,
                         ease: "power2.out"
                     }, "-=0.8");
+
+                    // Fallback: Ensure text visibility after delay
+                    setTimeout(() => {
+                        if (mainTitleRef.current) {
+                            gsap.set(mainTitleRef.current, {
+                                opacity: 1,
+                                clearProps: "transform"
+                            });
+                            const allChars = mainTitleRef.current.querySelectorAll('span');
+                            gsap.set(allChars, {
+                                opacity: 1,
+                                clearProps: "transform,opacity"
+                            });
+                        }
+                    }, 2000);
                 }
 
                 // Make GSAP globally available for debugging

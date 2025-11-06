@@ -117,7 +117,17 @@ const CaseStudies = () => {
                     duration: 0.7,
                     stagger: 0.035,
                     ease: "back.out(1.3)",
-                    transformPerspective: 1100
+                    transformPerspective: 1100,
+                    onComplete: () => {
+                        // Ensure all characters are visible after animation
+                        gsap.set(titleChars, {
+                            opacity: 1,
+                            y: 0,
+                            rotationX: 0,
+                            scale: 1,
+                            clearProps: "transform,opacity"
+                        });
+                    }
                 }, "-=0.4");
 
                 // Animate orange span specifically
@@ -150,6 +160,21 @@ const CaseStudies = () => {
                         transformPerspective: 1000
                     }, "-=0.2");
                 }
+
+                // Fallback: Ensure text visibility after delay
+                setTimeout(() => {
+                    if (titleRef.current) {
+                        gsap.set(titleRef.current, {
+                            opacity: 1,
+                            clearProps: "transform"
+                        });
+                        const allChars = titleRef.current.querySelectorAll('span');
+                        gsap.set(allChars, {
+                            opacity: 1,
+                            clearProps: "transform,opacity"
+                        });
+                    }
+                }, 2000);
 
                 // Cleanup
                 return () => {

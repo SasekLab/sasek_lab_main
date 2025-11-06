@@ -92,7 +92,17 @@ const Services = () => {
                     duration: 0.6,
                     stagger: 0.03,
                     ease: "back.out(1.2)",
-                    transformPerspective: 1000
+                    transformPerspective: 1000,
+                    onComplete: () => {
+                        // Ensure all characters are visible after animation
+                        gsap.set(titleChars, {
+                            opacity: 1,
+                            y: 0,
+                            rotationX: 0,
+                            scale: 1,
+                            clearProps: "transform,opacity"
+                        });
+                    }
                 }, "-=0.4");
 
                 // Animate orange span specifically
@@ -124,6 +134,21 @@ const Services = () => {
                         transformPerspective: 1000
                     }, "-=0.3");
                 }
+
+                // Fallback: Ensure text visibility after delay
+                setTimeout(() => {
+                    if (titleRef.current) {
+                        gsap.set(titleRef.current, {
+                            opacity: 1,
+                            clearProps: "transform"
+                        });
+                        const allChars = titleRef.current.querySelectorAll('span');
+                        gsap.set(allChars, {
+                            opacity: 1,
+                            clearProps: "transform,opacity"
+                        });
+                    }
+                }, 2000);
 
                 // Cleanup
                 return () => {
