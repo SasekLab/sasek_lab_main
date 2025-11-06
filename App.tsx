@@ -40,7 +40,7 @@ export default function App() {
           </LazySection>
 
           {/* Services */}
-          <LazySection rootMargin="200px" className="bg-gray-50 text-black">
+          <LazySection rootMargin="200px" className="bg-brand-dark text-white">
             <section>
               <Services />
             </section>

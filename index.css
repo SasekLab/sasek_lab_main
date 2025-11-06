@@ -235,5 +235,21 @@ html, body {
   animation: gradient-rotate 3s ease infinite;
 }
 
+/* Horizontal scroll animation for stats */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 20s linear infinite;
+  display: flex;
+  width: fit-content;
+}
+
 
 
