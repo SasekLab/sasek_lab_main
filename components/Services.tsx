@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Services = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const subtitleRef = useRef<HTMLParagraphElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const serviceCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
     const services = [
         {
             title: "WEBSITE DEVELOPMENT",
@@ -14,13 +19,132 @@ const Services = () => {
         }
     ];
 
+    // GSAP Text Animations for Section Headers
+    useEffect(() => {
+        if (!sectionRef.current || !subtitleRef.current || !titleRef.current) return;
+
+        // Dynamic GSAP import
+        import('gsap').then(gsapModule => {
+            const { gsap } = gsapModule;
+            import('gsap/ScrollTrigger').then(ScrollTriggerModule => {
+                const { ScrollTrigger } = ScrollTriggerModule;
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Clear any existing ScrollTriggers for this section
+                ScrollTrigger.getAll().forEach(trigger => {
+                    if (trigger.trigger === sectionRef.current) {
+                        trigger.kill();
+                    }
+                });
+
+                // Header text animation timeline
+                const headerTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                // Subtitle animation
+                headerTl.fromTo(subtitleRef.current, {
+                    y: 30,
+                    opacity: 0,
+                    rotationX: -15
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    transformPerspective: 1000
+                });
+
+                // Title animation with character-by-character reveal
+                const titleText = titleRef.current.innerText;
+                const titleChars = titleText.split('').map(char => {
+                    if (char === ' ') {
+                        return document.createTextNode(' ');
+                    }
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.style.display = 'inline-block';
+                    span.style.transformOrigin = 'center bottom';
+                    return span;
+                });
+
+                // Clear title and rebuild with spans
+                titleRef.current.innerHTML = '';
+                titleChars.forEach(char => titleRef.current?.appendChild(char));
+
+                // Animate characters
+                headerTl.fromTo(titleChars, {
+                    y: 80,
+                    opacity: 0,
+                    rotationX: 45,
+                    scale: 0.8,
+                    transformPerspective: 1000
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    stagger: 0.03,
+                    ease: "back.out(1.2)",
+                    transformPerspective: 1000
+                }, "-=0.4");
+
+                // Animate orange span specifically
+                const orangeSpan = titleRef.current.querySelector('.text-brand-orange');
+                if (orangeSpan) {
+                    headerTl.to(orangeSpan, {
+                        color: "#F97316",
+                        duration: 0.3,
+                        ease: "power2.inOut"
+                    }, "-=0.2");
+                }
+
+                // Service cards entrance animation
+                const validCards = serviceCardRefs.current.filter(Boolean);
+                if (validCards.length > 0) {
+                    headerTl.fromTo(validCards, {
+                        y: 60,
+                        opacity: 0,
+                        scale: 0.9,
+                        rotationY: -15
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        rotationY: 0,
+                        duration: 0.8,
+                        stagger: 0.2,
+                        ease: "power3.out",
+                        transformPerspective: 1000
+                    }, "-=0.3");
+                }
+
+                // Cleanup
+                return () => {
+                    ScrollTrigger.getAll().forEach(trigger => {
+                        if (trigger.trigger === sectionRef.current) {
+                            trigger.kill();
+                        }
+                    });
+                    gsap.killTweensOf([subtitleRef.current, titleRef.current, ...titleChars, ...validCards]);
+                };
+            });
+        });
+    }, []);
+
     return (
-        <div className="py-16 sm:py-24" id="services">
+        <div ref={sectionRef} className="py-16 sm:py-24" id="services">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Header */}
                 <div>
-                    <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">WHAT WE OFFER</p>
-                    <h2 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
+                    <p ref={subtitleRef} className="text-sm font-semibold tracking-widest text-gray-400 uppercase">WHAT WE OFFER</p>
+                    <h2 ref={titleRef} className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
                         Our <span className="text-brand-orange">Services</span>
                     </h2>
                 </div>
@@ -28,7 +152,7 @@ const Services = () => {
                 {/* Services Cards - Static Grid Layout */}
                 <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {services.map((service, index) => (
-                        <div key={service.title} className="group">
+                        <div key={service.title} ref={el => serviceCardRefs.current[index] = el} className="group">
                             {/* Enhanced Glassmorphism Card */}
                             <div className="relative bg-white/[0.08] backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.12] hover:border-white/20 hover:shadow-2xl h-full">
                                 {/* Subtle inner shadow for depth */}

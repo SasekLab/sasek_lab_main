@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Safari } from './ui/safari';
 import { Iphone } from './ui/iphone';
 
 
 const CaseStudies = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const subtitleRef = useRef<HTMLParagraphElement>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const caseRefs = useRef<(HTMLDivElement | null)[]>([]);
+
     const cases = [
         {
             title: "E-Commerce Platform Transformation",
@@ -39,17 +44,137 @@ const CaseStudies = () => {
     // Filter out the Restaurant Chain Automation System case (index 1)
     const filteredCases = cases.filter((_, index) => index !== 1);
 
+    // GSAP Text Animations for Section Headers
+    useEffect(() => {
+        if (!sectionRef.current || !subtitleRef.current || !titleRef.current) return;
+
+        // Dynamic GSAP import
+        import('gsap').then(gsapModule => {
+            const { gsap } = gsapModule;
+            import('gsap/ScrollTrigger').then(ScrollTriggerModule => {
+                const { ScrollTrigger } = ScrollTriggerModule;
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Clear any existing ScrollTriggers for this section
+                ScrollTrigger.getAll().forEach(trigger => {
+                    if (trigger.trigger === sectionRef.current) {
+                        trigger.kill();
+                    }
+                });
+
+                // Header text animation timeline
+                const headerTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                // Subtitle animation
+                headerTl.fromTo(subtitleRef.current, {
+                    y: 35,
+                    opacity: 0,
+                    rotationX: -18
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    transformPerspective: 1000
+                });
+
+                // Title animation with character-by-character reveal
+                const titleText = titleRef.current.innerText;
+                const titleChars = titleText.split('').map(char => {
+                    if (char === ' ') {
+                        return document.createTextNode(' ');
+                    }
+                    const span = document.createElement('span');
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    span.style.display = 'inline-block';
+                    span.style.transformOrigin = 'center bottom';
+                    return span;
+                });
+
+                // Clear title and rebuild with spans
+                titleRef.current.innerHTML = '';
+                titleChars.forEach(char => titleRef.current?.appendChild(char));
+
+                // Animate characters with bounce effect
+                headerTl.fromTo(titleChars, {
+                    y: 90,
+                    opacity: 0,
+                    rotationX: 50,
+                    scale: 0.7,
+                    transformPerspective: 1100
+                }, {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    scale: 1,
+                    duration: 0.7,
+                    stagger: 0.035,
+                    ease: "back.out(1.3)",
+                    transformPerspective: 1100
+                }, "-=0.4");
+
+                // Animate orange span specifically
+                const orangeSpan = titleRef.current.querySelector('.text-brand-orange');
+                if (orangeSpan) {
+                    headerTl.to(orangeSpan, {
+                        color: "#F97316",
+                        textShadow: "0 0 25px rgba(249, 115, 22, 0.4)",
+                        duration: 0.5,
+                        ease: "elastic.out(1, 0.3)"
+                    }, "-=0.2");
+                }
+
+                // Case studies entrance animation
+                const validCases = caseRefs.current.filter(Boolean);
+                if (validCases.length > 0) {
+                    headerTl.fromTo(validCases, {
+                        y: 80,
+                        opacity: 0,
+                        scale: 0.85,
+                        rotationY: -20
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                        rotationY: 0,
+                        duration: 0.9,
+                        stagger: 0.3,
+                        ease: "power3.out",
+                        transformPerspective: 1000
+                    }, "-=0.2");
+                }
+
+                // Cleanup
+                return () => {
+                    ScrollTrigger.getAll().forEach(trigger => {
+                        if (trigger.trigger === sectionRef.current) {
+                            trigger.kill();
+                        }
+                    });
+                    gsap.killTweensOf([subtitleRef.current, titleRef.current, ...titleChars, ...validCases]);
+                };
+            });
+        });
+    }, []);
+
     return (
-        <div className="py-16 sm:py-24 bg-white text-black space-y-24" id="portfolio">
+        <div ref={sectionRef} className="py-16 sm:py-24 bg-white text-black space-y-24" id="portfolio">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase">Our Portfolio</p>
-                <h2 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
+                <p ref={subtitleRef} className="text-sm font-semibold tracking-widest text-gray-500 uppercase">Our Portfolio</p>
+                <h2 ref={titleRef} className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
                     Success Stories That <span className="text-brand-orange">Speak Volumes</span>
                 </h2>
             </div>
             <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-24">
                 {filteredCases.map((c, i) => (
-                    <div key={i} className={`grid lg:grid-cols-2 gap-12 items-center ${filteredCases.length === 2 && i === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
+                    <div key={i} ref={el => caseRefs.current[i] = el} className={`grid lg:grid-cols-2 gap-12 items-center ${filteredCases.length === 2 && i === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
                         <div className={`${filteredCases.length === 2 && i === 1 ? 'lg:col-start-2' : ''} flex justify-center items-center`} data-animate="slide-up">
                             <div className={`w-full mx-auto transform hover:scale-105 transition-transform duration-300 ${c.deviceType === 'safari' ? 'max-w-2xl' : 'max-w-xs'}`}>
                                 {c.deviceType === 'safari' ? (

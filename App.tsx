@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { initPerformanceMonitor } from './utils/performanceMonitor';
-import { useSmoothScroll } from './hooks/useSmoothScroll';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -11,20 +10,19 @@ import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LazySection from './components/LazySection';
+import SmoothScroll from './components/SmoothScroll';
 
 export default function App() {
-  // Initialize performance monitoring and smooth scrolling
+  // Initialize performance monitoring
   useEffect(() => {
     initPerformanceMonitor();
   }, []);
 
-  // Initialize smooth scrolling
-  useSmoothScroll();
-
   return (
     <div className="bg-brand-dark text-white font-sans">
       <Header />
-      <main className="relative">
+      <SmoothScroll>
+        <main className="relative">
           {/* Hero Section */}
           <section className="bg-brand-dark">
             <Hero />
@@ -71,7 +69,8 @@ export default function App() {
               <Contact />
             </section>
           </LazySection>
-            </main>
+        </main>
+      </SmoothScroll>
 
       <Footer />
     </div>
