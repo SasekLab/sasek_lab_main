@@ -40,20 +40,20 @@ const Services = () => {
                                 {/* Card content */}
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-16 h-16 bg-white/[0.1] backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10 shadow-lg">
-                                            <span className="text-xs text-white/60 font-semibold text-center">{service.icon}</span>
+                                        <div className="w-16 h-16 bg-brand-orange/10 rounded-xl flex items-center justify-center border border-white/10 shadow-lg">
+                                            <span className="text-xs text-brand-orange font-bold">{service.icon}</span>
                                         </div>
                                     </div>
                                     <h3 className="text-2xl font-bold mb-4 text-white uppercase tracking-wide">
                                         {service.title}
                                     </h3>
-                                    <p className="text-gray-300 leading-relaxed">
+                                    <p className="text-gray-400 leading-relaxed">
                                         {service.description}
                                     </p>
                                 </div>
 
-                                {/* Enhanced hover glow - orange only */}
-                                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-orange-500/10 via-orange-400/5 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                                {/* Enhanced hover glow - white only */}
+                                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-white/10 via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                             </div>
                         </div>
                     ))}
