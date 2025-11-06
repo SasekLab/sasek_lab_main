@@ -1,9 +1,6 @@
-import React, { useRef, useLayoutEffect, useState, useCallback } from 'react';
+import React from 'react';
 
 const Services = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLDivElement>(null);
-
     const services = [
         {
             title: "WEBSITE DEVELOPMENT",
@@ -17,13 +14,10 @@ const Services = () => {
         }
     ];
 
-    
-    
-    
     return (
         <div className="py-16 sm:py-24" id="services">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                {/* Header - Using Process component style */}
+                {/* Header */}
                 <div>
                     <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">WHAT WE OFFER</p>
                     <h2 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
@@ -31,12 +25,12 @@ const Services = () => {
                     </h2>
                 </div>
 
-                {/* Services Cards - Static Display */}
-                <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* Services Cards - Static Grid Layout */}
+                <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {services.map((service, index) => (
                         <div key={service.title} className="group">
                             {/* Enhanced Glassmorphism Card */}
-                            <div className="relative bg-white/[0.08] backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-xl mx-auto h-full">
+                            <div className="relative bg-white/[0.08] backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.12] hover:border-white/20 hover:shadow-2xl h-full">
                                 {/* Subtle inner shadow for depth */}
                                 <div className="absolute inset-0 rounded-2xl shadow-inner bg-black/20"></div>
 
@@ -57,6 +51,9 @@ const Services = () => {
                                         {service.description}
                                     </p>
                                 </div>
+
+                                {/* Enhanced hover glow - orange only */}
+                                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-orange-500/10 via-orange-400/5 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                             </div>
                         </div>
                     ))}
