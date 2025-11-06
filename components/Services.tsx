@@ -14,12 +14,12 @@ const Services = () => {
         {
             title: "WEBSITE DEVELOPMENT",
             description: "We create responsive, high-performance websites using cutting-edge technologies. Our sites are optimized for speed, SEO, and user experience to ensure your business stands out online.",
-            icon: "🚀"
+            icon: "[ICON-WEBSITE]"
         },
         {
             title: "AI AND AUTOMATION",
             description: "Leverage the power of artificial intelligence to automate repetitive tasks, analyze data, and make smarter business decisions. Our AI solutions give you a competitive edge.",
-            icon: "🤖"
+            icon: "[ICON-AUTOMATION]"
         }
     ];
 
@@ -190,7 +190,7 @@ const Services = () => {
                     </h2>
                 </div>
 
-                {/* Services Grid - 2 glowing cards */}
+                {/* Services Grid - 2 glassmorphism cards */}
                 <div ref={gridRef} className="mt-16 grid md:grid-cols-2 gap-8">
                     {services.map((service, index) => (
                         <div
@@ -198,28 +198,31 @@ const Services = () => {
                             ref={(el) => { cardRefs.current[index] = el; }}
                             className="relative group hover-lift"
                         >
-                            {/* Glowing card with subtle gradient */}
-                            <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
-                                {/* Subtle glow effect */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            {/* Proper Glassmorphism Card */}
+                            <div className="relative bg-white/[0.08] backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/[0.12] hover:border-white/20 hover:shadow-2xl">
+                                {/* Subtle inner shadow for depth */}
+                                <div className="absolute inset-0 rounded-2xl shadow-inner bg-black/20"></div>
+
+                                {/* Light reflection effect */}
+                                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
                                 {/* Card content */}
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
-                                            <span className="text-2xl">{service.icon}</span>
+                                        <div className="w-16 h-16 bg-white/[0.1] backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/10 shadow-lg">
+                                            <span className="text-xs text-white/60 font-semibold text-center">{service.icon}</span>
                                         </div>
                                     </div>
                                     <h3 className="text-2xl font-bold mb-4 text-white uppercase tracking-wide">
                                         {service.title}
                                     </h3>
-                                    <p className="text-gray-400 leading-relaxed">
+                                    <p className="text-gray-300 leading-relaxed">
                                         {service.description}
                                     </p>
                                 </div>
 
-                                {/* Subtle animated border */}
-                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-purple-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm"></div>
+                                {/* Subtle hover glow - orange only */}
+                                <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-orange-500/10 via-orange-400/5 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                             </div>
                         </div>
                     ))}
