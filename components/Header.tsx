@@ -237,10 +237,10 @@ const Header = () => {
                 {/* CTA Button */}
                 <ShimmerButton
                     ref={ctaButtonRef}
-                    className="hidden lg:inline-flex items-center uppercase text-black px-6 py-3"
+                    className="hidden lg:inline-flex items-center uppercase text-black px-4 py-2 text-sm font-medium hover:!bg-brand-orange hover:!text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
                     shimmerColor="#FF6B35"
                     background="white"
-                    borderRadius="12px"
+                    borderRadius="8px"
                     onClick={() => {
                         // Use GSAP smooth scroll if available
                         if ((window as any).smoother) {
@@ -290,10 +290,10 @@ const Header = () => {
                             </a>
                         ))}
                         <ShimmerButton
-                            className="flex items-center justify-center w-full text-center mt-4 uppercase text-black px-6 py-3"
+                            className="flex items-center justify-center w-full text-center mt-4 uppercase text-black px-4 py-2 text-sm font-medium hover:!bg-brand-orange hover:!text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
                             shimmerColor="#FF6B35"
                             background="white"
-                            borderRadius="12px"
+                            borderRadius="8px"
                             onClick={() => {
                                 // Use GSAP smooth scroll if available
                                 if ((window as any).smoother) {

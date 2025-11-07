@@ -283,12 +283,7 @@ const Process = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
-                    <a href="#contact" className="inline-block px-8 py-4 bg-brand-orange text-white text-sm font-bold rounded-md hover:bg-orange-600 transition-colors">
-                        START YOUR TRANSFORMATION
-                    </a>
-                </div>
-            </div>
+              </div>
         </div>
     );
 };
