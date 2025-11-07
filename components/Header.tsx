@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShimmerButton } from './ui/shimmer-button';
+import { ChevronUp } from 'lucide-react';
 
 const ChevronDownIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -235,12 +236,9 @@ const Header = () => {
                 </button>
 
                 {/* CTA Button */}
-                <ShimmerButton
+                <button
                     ref={ctaButtonRef}
-                    className="hidden lg:inline-flex items-center uppercase text-black px-4 py-2 text-sm font-medium hover:!bg-brand-orange hover:!text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-                    shimmerColor="#FF6B35"
-                    background="white"
-                    borderRadius="8px"
+                    className="hidden lg:inline-flex items-center uppercase text-white px-4 py-2 text-sm font-medium bg-brand-orange hover:bg-white hover:text-brand-orange border-2 border-brand-orange hover:scale-105 hover:shadow-lg transition-all duration-300 rounded-lg"
                     onClick={() => {
                         // Use GSAP smooth scroll if available
                         if ((window as any).smoother) {
@@ -257,7 +255,7 @@ const Header = () => {
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                </ShimmerButton>
+                </button>
             </div>
             
             {/* Mobile Menu */}
@@ -289,11 +287,8 @@ const Header = () => {
                                 {link.label}
                             </a>
                         ))}
-                        <ShimmerButton
-                            className="flex items-center justify-center w-full text-center mt-4 uppercase text-black px-4 py-2 text-sm font-medium hover:!bg-brand-orange hover:!text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-                            shimmerColor="#FF6B35"
-                            background="white"
-                            borderRadius="8px"
+                        <button
+                            className="flex items-center justify-center w-full text-center mt-4 uppercase text-white px-4 py-2 text-sm font-medium bg-brand-orange hover:bg-white hover:text-brand-orange border-2 border-brand-orange hover:scale-105 hover:shadow-lg transition-all duration-300 rounded-lg"
                             onClick={() => {
                                 // Use GSAP smooth scroll if available
                                 if ((window as any).smoother) {
@@ -311,11 +306,12 @@ const Header = () => {
                             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                        </ShimmerButton>
+                        </button>
                     </nav>
                 </div>
             )}
-        </header>
+
+          </header>
     );
 };
 
