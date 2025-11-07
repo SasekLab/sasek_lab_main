@@ -54,7 +54,7 @@ export function Safari({
           }}
         >
           <video
-            className="block size-full object-cover"
+            className="block size-full object-contain"
             src={videoSrc}
             autoPlay
             loop
@@ -79,7 +79,7 @@ export function Safari({
           <img
             src={imageSrc}
             alt=""
-            className="block size-full object-cover object-top"
+            className="block size-full object-contain"
           />
         </div>
       )}

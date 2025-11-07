@@ -13,26 +13,22 @@ const Process = () => {
         {
             number: "01",
             title: "Discovery & Strategy",
-            description: "We dive deep into your business goals, target audience, and current challenges to create a tailored digital strategy.",
-            icon: "[ICON-DISCOVERY]"
+            description: "We dive deep into your business goals, target audience, and current challenges to create a tailored digital strategy."
         },
         {
             number: "02",
             title: "Design & Development",
-            description: "Our team crafts stunning 3D websites and builds intelligent automation systems that align with your brand and objectives.",
-            icon: "[ICON-DESIGN]"
+            description: "Our team crafts stunning 3D websites and builds intelligent automation systems that align with your brand and objectives."
         },
         {
             number: "03",
             title: "Launch & Optimize",
-            description: "We ensure flawless deployment and provide ongoing optimization to maximize your return on investment.",
-            icon: "[ICON-LAUNCH]"
+            description: "We ensure flawless deployment and provide ongoing optimization to maximize your return on investment."
         },
         {
             number: "04",
             title: "Growth & Scale",
-            description: "As your business grows, we evolve your digital solutions to support new opportunities and markets.",
-            icon: "[ICON-GROWTH]"
+            description: "As your business grows, we evolve your digital solutions to support new opportunities and markets."
         },
     ];
 
@@ -252,9 +248,20 @@ const Process = () => {
                     How We Transform <span className="text-brand-orange">Your Business</span>
                 </h2>
                 
-                {/* [PROCESS-ILLUSTRATION] - Full process diagram/infographic placeholder */}
-                <div className="mt-12 mb-16 bg-gray-800/30 rounded-2xl p-8 flex items-center justify-center min-h-[200px]">
-                    <p className="text-gray-500 text-center">Process Diagram/Infographic Placeholder<br/>Visual representation of 4-step process</p>
+                {/* [PROCESS-ILLUSTRATION] - Full process diagram/infographic */}
+                <div className="mt-12 mb-16 bg-gray-800/30 rounded-2xl p-8 flex items-center justify-center min-h-[200px] overflow-hidden">
+                    {/* Mobile Image */}
+                    <img
+                        src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16AeLor9SB8ZGuLJfV5UhljntYCSiMc9eKQXNIdo"
+                        alt="Process Diagram - Mobile"
+                        className="block lg:hidden w-full h-auto object-contain"
+                    />
+                    {/* Desktop & Tablet Image */}
+                    <img
+                        src="https://s76r76lcog.ufs.sh/f/7TPlciUQ16AeNs0ikubuRDhk8p5rHCjoXEYfB2QxL7wPGesK"
+                        alt="Process Diagram - Desktop & Tablet"
+                        className="hidden lg:block w-full h-auto object-contain"
+                    />
                 </div>
 
                 <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -262,15 +269,12 @@ const Process = () => {
                         <div key={i} className="relative hover-lift" data-animate="fade-in" data-animate-delay={i * 100}>
                             {/* Connecting line (hidden on mobile, shown on desktop between items) */}
                             {i < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-brand-orange to-transparent" data-animate="draw-line"></div>
+                                <div className="hidden lg:block absolute top-12 left-full w-48 h-0.5 bg-gradient-to-r from-brand-orange via-brand-orange/50 to-transparent -translate-x-4" data-animate="draw-line"></div>
                             )}
                             
                             <div className="relative">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center" data-animate="scale-in">
-                                        <span className="text-xs text-brand-orange font-bold">{step.icon}</span>
-                                    </div>
-                                    <span className="text-6xl font-bold text-gray-800">{step.number}</span>
+                                    <span className="text-6xl font-bold text-white">{step.number}</span>
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                                 <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>

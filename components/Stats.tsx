@@ -36,23 +36,6 @@ const Stats = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Custom styles for infinite scroll animation */}
-            <style jsx>{`
-                @keyframes scroll-horizontal {
-                    0% {
-                        transform: translateX(0);
-                    }
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-                .animate-scroll-horizontal {
-                    animation: scroll-horizontal 20s linear infinite;
-                    display: flex;
-                    width: fit-content;
-                }
-            `}</style>
         </div>
     );
 };

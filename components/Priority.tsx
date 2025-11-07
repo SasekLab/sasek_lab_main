@@ -1,13 +1,15 @@
 import React, { useRef, useLayoutEffect } from 'react';
-// import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const Priority = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
+    const subtitleRef = useRef<HTMLParagraphElement>(null);
+    const mainTitleRef = useRef<HTMLHeadingElement>(null);
     const items = [
         { 
             title: "INNOVATION-FIRST APPROACH", 
@@ -55,6 +57,64 @@ const Priority = () => {
             import('gsap/ScrollTrigger').then(ScrollTriggerModule => {
                 const { ScrollTrigger } = ScrollTriggerModule;
                 gsap.registerPlugin(ScrollTrigger);
+
+                // Header Text Animations
+                if (subtitleRef.current && mainTitleRef.current) {
+                    const headerTl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    });
+
+                    // Subtitle animation
+                    headerTl.fromTo(subtitleRef.current, {
+                        y: 40,
+                        opacity: 0,
+                        rotationX: -20
+                    }, {
+                        y: 0,
+                        opacity: 1,
+                        rotationX: 0,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        transformPerspective: 1000
+                    });
+
+                    // Simple title animation - just fade in the whole title
+                headerTl.fromTo(mainTitleRef.current, {
+                    opacity: 0.2,
+                    y: 20
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.2");
+
+                    // Container animation
+                    headerTl.fromTo(titleRef.current, {
+                        scale: 0.95,
+                        opacity: 0.8
+                    }, {
+                        scale: 1,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power2.out"
+                    }, "-=0.8");
+
+                    // Fallback: Ensure text visibility after delay
+                    setTimeout(() => {
+                        if (mainTitleRef.current) {
+                            gsap.set(mainTitleRef.current, {
+                                opacity: 1,
+                                y: 0,
+                                clearProps: "transform,opacity"
+                            });
+                        }
+                    }, 1000);
+                }
 
                 // Make GSAP globally available for debugging
                 window.gsap = gsap;
@@ -131,11 +191,11 @@ const Priority = () => {
     }, []);
 
     return (
-        <div ref={sectionRef} className="py-16 sm:py-24 bg-white text-black relative overflow-hidden">
+        <div ref={sectionRef} className="py-16 sm:py-24 bg-white text-black relative overflow-hidden" id="priority">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div ref={titleRef}>
-                    <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase">WHY CHOOSE SASEK LABS</p>
-                    <h2 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">What Makes Us <span className="text-brand-orange">Different</span></h2>
+                    <p ref={subtitleRef} className="text-sm font-semibold tracking-widest text-gray-500 uppercase">WHY CHOOSE SASEK LABS</p>
+                    <h2 ref={mainTitleRef} className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">What Makes Us <span className="text-brand-orange">Different</span></h2>
                 </div>
                 <div ref={gridRef} className="mt-16 grid md:grid-cols-2 gap-6">
                     {items.map((item, i) => (

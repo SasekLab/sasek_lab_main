@@ -16,6 +16,16 @@ html, body {
   font-family: 'Inter', sans-serif;
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add margin-top to sections to account for fixed header */
+#services, #portfolio, #about, #contact, #priority, #team {
+  scroll-margin-top: 80px;
+}
+
 @theme inline {
   --animate-gradient: gradient 8s linear infinite;
   --color-sidebar-ring: var(--sidebar-ring);
@@ -215,6 +225,40 @@ html, body {
 .headline-char {
   transform-style: preserve-3d;
   backface-visibility: hidden;
+}
+
+/* Gradient rotate animation for service cards */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-rotate {
+  background-size: 200% 200%;
+  animation: gradient-rotate 3s ease infinite;
+}
+
+/* Horizontal scroll animation for stats */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 20s linear infinite;
+  display: flex;
+  width: fit-content;
 }
 
 
