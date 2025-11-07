@@ -60,60 +60,16 @@ const Services = () => {
                     transformPerspective: 1000
                 });
 
-                // Title animation with character-by-character reveal
-                const titleText = titleRef.current.innerText;
-                const titleChars = titleText.split('').map(char => {
-                    if (char === ' ') {
-                        return document.createTextNode(' ');
-                    }
-                    const span = document.createElement('span');
-                    span.textContent = char === ' ' ? '\u00A0' : char;
-                    span.style.display = 'inline-block';
-                    span.style.transformOrigin = 'center bottom';
-                    return span;
-                });
-
-                // Clear title and rebuild with spans
-                titleRef.current.innerHTML = '';
-                titleChars.forEach(char => titleRef.current?.appendChild(char));
-
-                // Animate characters
-                headerTl.fromTo(titleChars, {
-                    y: 80,
-                    opacity: 0,
-                    rotationX: 45,
-                    scale: 0.8,
-                    transformPerspective: 1000
+                // Simple title animation - just fade in the whole title
+                headerTl.fromTo(titleRef.current, {
+                    opacity: 0.2,
+                    y: 20
                 }, {
-                    y: 0,
                     opacity: 1,
-                    rotationX: 0,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.03,
-                    ease: "back.out(1.2)",
-                    transformPerspective: 1000,
-                    onComplete: () => {
-                        // Ensure all characters are visible after animation
-                        gsap.set(titleChars, {
-                            opacity: 1,
-                            y: 0,
-                            rotationX: 0,
-                            scale: 1,
-                            clearProps: "transform,opacity"
-                        });
-                    }
-                }, "-=0.4");
-
-                // Animate orange span specifically
-                const orangeSpan = titleRef.current.querySelector('.text-brand-orange');
-                if (orangeSpan) {
-                    headerTl.to(orangeSpan, {
-                        color: "#F97316",
-                        duration: 0.3,
-                        ease: "power2.inOut"
-                    }, "-=0.2");
-                }
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.2");
 
                 // Service cards entrance animation
                 const validCards = serviceCardRefs.current.filter(Boolean);
@@ -140,15 +96,11 @@ const Services = () => {
                     if (titleRef.current) {
                         gsap.set(titleRef.current, {
                             opacity: 1,
-                            clearProps: "transform"
-                        });
-                        const allChars = titleRef.current.querySelectorAll('span');
-                        gsap.set(allChars, {
-                            opacity: 1,
+                            y: 0,
                             clearProps: "transform,opacity"
                         });
                     }
-                }, 2000);
+                }, 1000);
 
                 // Cleanup
                 return () => {

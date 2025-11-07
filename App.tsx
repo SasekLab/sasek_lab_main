@@ -69,10 +69,11 @@ export default function App() {
               <Contact />
             </section>
           </LazySection>
+
+          {/* Footer */}
+          <Footer />
         </main>
       </SmoothScroll>
-
-      <Footer />
     </div>
   );
 }

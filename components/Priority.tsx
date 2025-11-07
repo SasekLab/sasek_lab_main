@@ -82,61 +82,16 @@ const Priority = () => {
                         transformPerspective: 1000
                     });
 
-                    // Title animation with character-by-character reveal
-                    const titleText = mainTitleRef.current.innerText;
-                    const titleChars = titleText.split('').map(char => {
-                        if (char === ' ') {
-                            return document.createTextNode(' ');
-                        }
-                        const span = document.createElement('span');
-                        span.textContent = char === ' ' ? '\u00A0' : char;
-                        span.style.display = 'inline-block';
-                        span.style.transformOrigin = 'center bottom';
-                        return span;
-                    });
-
-                    // Clear title and rebuild with spans
-                    mainTitleRef.current.innerHTML = '';
-                    titleChars.forEach(char => mainTitleRef.current?.appendChild(char));
-
-                    // Animate characters with dramatic entrance
-                    headerTl.fromTo(titleChars, {
-                        y: 100,
-                        opacity: 0,
-                        rotationX: 60,
-                        scale: 0.6,
-                        transformPerspective: 1200
-                    }, {
-                        y: 0,
-                        opacity: 1,
-                        rotationX: 0,
-                        scale: 1,
-                        duration: 0.8,
-                        stagger: 0.04,
-                        ease: "back.out(1.4)",
-                        transformPerspective: 1200,
-                        onComplete: () => {
-                            // Ensure all characters are visible after animation
-                            gsap.set(titleChars, {
-                                opacity: 1,
-                                y: 0,
-                                rotationX: 0,
-                                scale: 1,
-                                clearProps: "transform,opacity"
-                            });
-                        }
-                    }, "-=0.4");
-
-                    // Animate orange span specifically with glow
-                    const orangeSpan = mainTitleRef.current.querySelector('.text-brand-orange');
-                    if (orangeSpan) {
-                        headerTl.to(orangeSpan, {
-                            color: "#F97316",
-                            textShadow: "0 0 20px rgba(249, 115, 22, 0.3)",
-                            duration: 0.4,
-                            ease: "power2.inOut"
-                        }, "-=0.3");
-                    }
+                    // Simple title animation - just fade in the whole title
+                headerTl.fromTo(mainTitleRef.current, {
+                    opacity: 0.2,
+                    y: 20
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.2");
 
                     // Container animation
                     headerTl.fromTo(titleRef.current, {
@@ -154,15 +109,11 @@ const Priority = () => {
                         if (mainTitleRef.current) {
                             gsap.set(mainTitleRef.current, {
                                 opacity: 1,
-                                clearProps: "transform"
-                            });
-                            const allChars = mainTitleRef.current.querySelectorAll('span');
-                            gsap.set(allChars, {
-                                opacity: 1,
+                                y: 0,
                                 clearProps: "transform,opacity"
                             });
                         }
-                    }, 2000);
+                    }, 1000);
                 }
 
                 // Make GSAP globally available for debugging
