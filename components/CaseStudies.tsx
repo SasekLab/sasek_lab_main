@@ -159,7 +159,7 @@ const CaseStudies = () => {
                             </div>
                         </div>
                         <div className={`${i === 1 ? 'lg:col-start-1' : ''}`}>
-                            <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase">#3D WEBSITES #AI AUTOMATION #WEB DEVELOPMENT</p>
+                            <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase">#WEB DEVELOPMENT</p>
                             <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">{c.title}</h3>
                             <div className="mt-4 flex flex-wrap gap-2">
                                 {c.tags.map(t => <span key={t} className="bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded-full">{t}</span>)}
