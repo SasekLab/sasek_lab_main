@@ -28,8 +28,15 @@ export default function App() {
             <Hero />
           </section>
 
+          {/* About Us */}
+          <LazySection rootMargin="200px" className="bg-white text-black">
+            <section>
+              <Team />
+            </section>
+          </LazySection>
+
           {/* Services */}
-          <LazySection rootMargin="200px" className="bg-brand-dark text-white">
+          <LazySection rootMargin="300px" className="bg-brand-dark text-white">
             <section>
               <Services />
             </section>
@@ -46,13 +53,6 @@ export default function App() {
           <LazySection rootMargin="400px" className="bg-brand-dark text-white">
             <section>
               <Process />
-            </section>
-          </LazySection>
-
-          {/* Team */}
-          <LazySection rootMargin="500px" className="bg-white text-black">
-            <section>
-              <Team />
             </section>
           </LazySection>
 

@@ -1,5 +1,31 @@
 import React, { useEffect, useRef } from 'react';
 
+const ServiceIcon = ({ iconName }: { iconName: string }) => {
+    switch (iconName) {
+        case 'globe':
+            return (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+            );
+        case 'bot':
+            return (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
+                    <path d="M12 8V4H8"></path>
+                    <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                    <path d="M2 14h2"></path>
+                    <path d="M20 14h2"></path>
+                    <path d="M15 13v2"></path>
+                    <path d="M9 13v2"></path>
+                </svg>
+            );
+        default:
+            return null;
+    }
+};
+
 const Services = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -10,12 +36,12 @@ const Services = () => {
         {
             title: "WEBSITE DEVELOPMENT",
             description: "We create responsive, high-performance websites using cutting-edge technologies. Our sites are optimized for speed, SEO, and user experience to ensure your business stands out online.",
-            icon: "[ICON-WEBSITE]"
+            icon: "globe"
         },
         {
             title: "AI AND AUTOMATION",
             description: "Leverage the power of artificial intelligence to automate repetitive tasks, analyze data, and make smarter business decisions. Our AI solutions give you a competitive edge.",
-            icon: "[ICON-AUTOMATION]"
+            icon: "bot"
         }
     ];
 
@@ -142,7 +168,9 @@ const Services = () => {
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className="w-16 h-16 bg-brand-orange/10 rounded-xl flex items-center justify-center border border-white/10 shadow-lg">
-                                            <span className="text-xs text-brand-orange font-bold">{service.icon}</span>
+                                            <div className="text-brand-orange">
+                                                <ServiceIcon iconName={service.icon} />
+                                            </div>
                                         </div>
                                     </div>
                                     <h3 className="text-2xl font-bold mb-4 text-white uppercase tracking-wide">
