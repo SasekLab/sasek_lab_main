@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LazySection from './components/LazySection';
 import SmoothScroll from './components/SmoothScroll';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   // Initialize performance monitoring
@@ -74,6 +75,9 @@ export default function App() {
           <Footer />
         </main>
       </SmoothScroll>
+
+      {/* Back to Top Button - Floating independently */}
+      <BackToTop />
     </div>
   );
 }
