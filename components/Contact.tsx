@@ -62,7 +62,6 @@ const Contact = () => {
                         <ShimmerButton type="submit" shimmerColor="#FF6B35" background="#FF6B35" className="px-8 py-4">
                             SUBMIT
                         </ShimmerButton>
-                        <p className="mt-4 text-xs text-gray-500">BY CLICKING THIS BUTTON YOU ACCEPT <a href="#" className="underline">TERMS OF SERVICE</a> AND <a href="#" className="underline">PRIVACY POLICY</a>.</p>
                     </div>
                     {submitted && (
                         <Confetti

@@ -1,16 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-const ArrowRightIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
-);
-
 const Team = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const parallaxRef = useRef<HTMLDivElement>(null);
 
-    // Parallax effect
+    // Parallax effect only (removed sticky behavior)
     useEffect(() => {
         if (!sectionRef.current || !parallaxRef.current) return;
 
@@ -28,13 +22,13 @@ const Team = () => {
                 const viewportHeight = window.innerHeight;
                 const scrollY = window.scrollY;
                 const sectionTop = sectionRef.current.offsetTop;
-                const speed = 0.3; // Reduced parallax speed
 
-                // Only apply parallax when section is in view
+                // Normal parallax behavior
+                const speed = 0.3;
+
                 if (rect.top < viewportHeight && rect.bottom > 0) {
-                    // Calculate parallax relative to section position
                     const scrollProgress = Math.max(0, Math.min(1, (scrollY - sectionTop + viewportHeight) / (viewportHeight + rect.height)));
-                    const yPos = scrollProgress * 100 * speed; // Max 100px * speed movement
+                    const yPos = scrollProgress * 100 * speed;
 
                     gsap.set(parallaxRef.current, {
                         y: yPos,
@@ -45,6 +39,8 @@ const Team = () => {
 
             // Add scroll listener
             window.addEventListener('scroll', handleScroll, { passive: true });
+            // Add resize listener for responsive behavior
+            window.addEventListener('resize', handleScroll, { passive: true });
 
             // Initial calculation
             handleScroll();
@@ -53,6 +49,7 @@ const Team = () => {
             return () => {
                 if (handleScroll) {
                     window.removeEventListener('scroll', handleScroll);
+                    window.removeEventListener('resize', handleScroll);
                 }
             };
         });

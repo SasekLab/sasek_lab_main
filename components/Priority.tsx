@@ -1,6 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { InnovationIcon, GlobalIcon, ResultsIcon, PartnershipIcon } from './ui/icons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,33 +12,33 @@ const Priority = () => {
     const subtitleRef = useRef<HTMLParagraphElement>(null);
     const mainTitleRef = useRef<HTMLHeadingElement>(null);
     const items = [
-        { 
-            title: "INNOVATION-FIRST APPROACH", 
-            heading: "We don't follow trends – we set them.", 
-            text: "Our 3D websites and AI automation solutions position your business as an industry leader. We push boundaries with cutting-edge technology that keeps you ahead of the competition.", 
+        {
+            title: "INNOVATION-FIRST APPROACH",
+            heading: "We don't follow trends – we set them.",
+            text: "Our 3D websites and AI automation solutions position your business as an industry leader. We push boundaries with cutting-edge technology that keeps you ahead of the competition.",
             dark: true,
-            icon: "[ICON-INNOVATION]"
+            icon: <InnovationIcon />
         },
-        { 
-            title: "LOCAL EXPERTISE, GLOBAL STANDARDS", 
-            heading: "Understanding local markets with international quality.", 
-            text: "We deliver solutions that compete internationally while understanding local business challenges. Our team combines regional insights with global best practices.", 
+        {
+            title: "LOCAL EXPERTISE, GLOBAL STANDARDS",
+            heading: "Understanding local markets with international quality.",
+            text: "We deliver solutions that compete internationally while understanding local business challenges. Our team combines regional insights with global best practices.",
             dark: false,
-            icon: "[ICON-GLOBAL]"
+            icon: <GlobalIcon />
         },
-        { 
-            title: "RESULTS-DRIVEN SOLUTIONS", 
-            heading: "Every website we build and every automation we implement is designed with one goal.", 
-            text: "Measurable business growth. We focus on metrics that matter: increased conversions, time saved, and revenue generated. Your success is our success.", 
+        {
+            title: "RESULTS-DRIVEN SOLUTIONS",
+            heading: "Every website we build and every automation we implement is designed with one goal.",
+            text: "Measurable business growth. We focus on metrics that matter: increased conversions, time saved, and revenue generated. Your success is our success.",
             dark: false,
-            icon: "[ICON-RESULTS]"
+            icon: <ResultsIcon />
         },
-        { 
-            title: "END-TO-END PARTNERSHIP", 
-            heading: "From initial concept to ongoing optimization.", 
-            text: "We're your dedicated technology partners throughout your digital journey. We don't just deliver projects – we build lasting relationships that evolve with your business.", 
+        {
+            title: "END-TO-END PARTNERSHIP",
+            heading: "From initial concept to ongoing optimization.",
+            text: "We're your dedicated technology partners throughout your digital journey. We don't just deliver projects – we build lasting relationships that evolve with your business.",
             dark: true,
-            icon: "[ICON-PARTNERSHIP]"
+            icon: <PartnershipIcon />
         },
     ];
 
@@ -207,8 +208,10 @@ const Priority = () => {
                                 willChange: 'transform'
                             }}
                         >
-                            <div className="w-16 h-16 bg-brand-orange/10 rounded-xl flex items-center justify-center mb-4">
-                                <span className="text-xs text-brand-orange font-bold">{item.icon}</span>
+                            <div className="w-16 h-16 bg-brand-orange/10 rounded-xl flex items-center justify-center mb-6">
+                                <div className="text-brand-orange">
+                                    {item.icon}
+                                </div>
                             </div>
                             <p className="text-xs font-bold tracking-wider uppercase">{item.title}</p>
                             <h3 className="mt-4 text-2xl font-bold">{item.heading}</h3>

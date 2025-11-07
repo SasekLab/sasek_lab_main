@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import InteractiveNet from './InteractiveNet';
 import { AnimatedGradientText } from './ui/animated-gradient-text';
 import { BlurFade } from './ui/blur-fade';
@@ -10,7 +10,75 @@ const ArrowRightIcon = () => (
     </svg>
 );
 
-const Hero = () => (
+const Hero = () => {
+    const typingRef = useRef<HTMLSpanElement>(null);
+
+    // GSAP Typing Animation
+    useEffect(() => {
+        if (!typingRef.current) return;
+
+        // Dynamic GSAP import
+        import('gsap').then(gsapModule => {
+            const { gsap } = gsapModule;
+
+            const typingElement = typingRef.current;
+            if (!typingElement) return;
+
+            // Set initial text to empty
+            typingElement.textContent = '';
+
+            // Text content for typing animation
+            const texts = [
+                "Stunning Websites",
+                "Smart Automations"
+            ];
+
+            let currentTextIndex = 0;
+            let currentCharIndex = 0;
+            let isTyping = true;
+            let typingSpeed = 50; // milliseconds per character
+            let pauseDuration = 1500; // pause between texts
+
+            const typeText = () => {
+                const currentText = texts[currentTextIndex];
+
+                if (isTyping) {
+                    // Typing animation
+                    if (currentCharIndex < currentText.length) {
+                        typingElement.textContent = currentText.substring(0, currentCharIndex + 1);
+                        currentCharIndex++;
+                        setTimeout(typeText, typingSpeed);
+                    } else {
+                        // Finished typing current text
+                        isTyping = false;
+                        setTimeout(typeText, pauseDuration);
+                    }
+                } else {
+                    // Erasing animation
+                    if (currentCharIndex > 0) {
+                        typingElement.textContent = currentText.substring(0, currentCharIndex - 1);
+                        currentCharIndex--;
+                        setTimeout(typeText, typingSpeed / 2); // Faster erasing
+                    } else {
+                        // Finished erasing, move to next text
+                        currentTextIndex = (currentTextIndex + 1) % texts.length;
+                        isTyping = true;
+                        setTimeout(typeText, 500); // Brief pause before next text
+                    }
+                }
+            };
+
+            // Start typing animation after a short delay
+            setTimeout(() => {
+                typeText();
+            }, 1000);
+
+        }).catch(error => {
+            console.error('Failed to load GSAP for typing animation:', error);
+        });
+    }, []);
+
+    return (
     <>
         {/* Main Hero Banner with InteractiveNet - Separate from Header */}
         <div className="relative pt-40 pb-16 sm:pt-48 sm:pb-24 overflow-hidden min-h-screen flex items-center justify-center">
@@ -23,7 +91,11 @@ const Hero = () => (
                     <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Web and Automation Agency</p>
                     <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
                         <AnimatedGradientText colorFrom="#FF6B35" colorTo="#FFFFFF">
-                            Transform Your Business with Stunning Websites & Smart Automation
+                            Transform Your Business with
+                            <br className="hidden sm:block" />
+                            <span ref={typingRef} className="inline-block min-w-[200px] text-left">
+                                {/* Typing animation will appear here */}
+                            </span>
                         </AnimatedGradientText>
                     </h1>
                     <BlurFade delay={0.3}>
@@ -73,6 +145,7 @@ const Hero = () => (
             </div>
         </div>
     </>
-);
+    );
+};
 
 export default Hero;
