@@ -9,7 +9,7 @@ const Footer = () => (
                     alt="SASEK Labs Logo"
                     className="h-8 w-auto"
                 />
-                <p className="text-gray-300 text-base sm:text-lg">Delivering world-class digital solutions to businesses worldwide</p>
+                <p className="text-gray-300 text-base sm:text-lg">Designed for Impact. Engineered for Growth.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center text-center">
                 <div className="font-bold text-white text-xs sm:text-sm">
@@ -19,7 +19,7 @@ const Footer = () => (
             </div>
             <div className="mt-8 sm:mt-12 border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
                 <div></div>
-                <p className="text-xs sm:text-sm text-white">© 2024 SASEK Labs. All rights reserved.</p>
+                <p className="text-xs sm:text-sm text-white">© 2026 SASEK Labs. All rights reserved.</p>
             </div>
         </div>
     </footer>
