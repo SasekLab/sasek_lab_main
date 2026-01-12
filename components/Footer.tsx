@@ -9,7 +9,7 @@ const Footer = () => (
                     alt="SASEK Labs Logo"
                     className="h-8 w-auto"
                 />
-                <p className="text-gray-300 text-base sm:text-lg">Delivering world-class digital solutions to businesses worldwide</p>
+                <p className="text-gray-300 text-base sm:text-lg">Designed for Impact. Engineered for Growth.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center text-center">
                 <div className="font-bold text-white text-xs sm:text-sm">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Safari } from './ui/safari';
 import { Iphone } from './ui/iphone';
+import KonceptImg from '@/Koncept.jpg';
 
 
 const CaseStudies = () => {
@@ -10,6 +11,16 @@ const CaseStudies = () => {
     const caseRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const cases = [
+        {
+            title: "Koncept (Company Learning Management System)",
+            tags: ["B2B", "SAAS", "EDTECH"],
+            tech: "React, Three.js, Node.js",
+            timeline: "4 months",
+            results: ["+250% increase in online sales", "40% reduction in cart abandonment", "3x faster page load times"],
+            img: KonceptImg,
+            url: "koncept.video",
+            deviceType: "safari", // Desktop website
+        },
         {
             title: "E-Commerce Platform Transformation",
             tags: ["B2B", "GLOBAL"],
@@ -140,33 +151,36 @@ const CaseStudies = () => {
                 </h2>
             </div>
             <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-24">
-                {filteredCases.map((c, i) => (
-                    <div key={i} ref={el => { caseRefs.current[i] = el }} className={`grid lg:grid-cols-2 gap-12 items-center ${filteredCases.length === 2 && i === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
-                        <div className={`${filteredCases.length === 2 && i === 1 ? 'lg:col-start-2' : ''} flex justify-center items-center`} data-animate="slide-up">
-                            <div className={`w-full mx-auto transform hover:scale-105 transition-transform duration-300 ${c.deviceType === 'safari' ? 'max-w-2xl' : 'max-w-xs'}`}>
-                                {c.deviceType === 'safari' ? (
-                                    <Safari
-                                        imageSrc={c.img}
-                                        url={c.url}
-                                        className="drop-shadow-2xl"
-                                    />
-                                ) : (
-                                    <Iphone
-                                        src={c.img}
-                                        className="drop-shadow-2xl"
-                                    />
-                                )}
+                {filteredCases.map((c, i) => {
+                    const isAlternating = i % 2 !== 0;
+                    return (
+                        <div key={i} ref={el => { caseRefs.current[i] = el }} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isAlternating ? 'lg:grid-flow-col-dense' : ''}`} data-animate="fade-in">
+                            <div className={`${isAlternating ? 'lg:col-start-2' : ''} flex justify-center items-center`} data-animate="slide-up">
+                                <div className={`w-full mx-auto transform hover:scale-105 transition-transform duration-300 ${c.deviceType === 'safari' ? 'max-w-2xl' : 'max-w-xs'}`}>
+                                    {c.deviceType === 'safari' ? (
+                                        <Safari
+                                            imageSrc={c.img}
+                                            url={c.url}
+                                            className="drop-shadow-2xl"
+                                        />
+                                    ) : (
+                                        <Iphone
+                                            src={c.img}
+                                            className="drop-shadow-2xl"
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                            <div className={`${isAlternating ? 'lg:col-start-1' : ''}`}>
+                                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase">#WEB DEVELOPMENT</p>
+                                <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">{c.title}</h3>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {c.tags.map(t => <span key={t} className="bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded-full">{t}</span>)}
+                                </div>
                             </div>
                         </div>
-                        <div className={`${i === 1 ? 'lg:col-start-1' : ''}`}>
-                            <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase">#WEB DEVELOPMENT</p>
-                            <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">{c.title}</h3>
-                            <div className="mt-4 flex flex-wrap gap-2">
-                                {c.tags.map(t => <span key={t} className="bg-gray-800 text-white text-xs font-bold px-3 py-1.5 rounded-full">{t}</span>)}
-                            </div>
-                          </div>
-                    </div>
-                ))}
+                    );
+                })}
               </div>
         </div>
     );
