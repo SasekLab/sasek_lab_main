@@ -45,7 +45,7 @@ class PerformanceMonitor {
     try {
       const clsObserver = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          if (!entry.hadRecentInput) {
+          if (!(entry as any).hadRecentInput) {
             this.metrics.cls = (this.metrics.cls || 0) + (entry as any).value;
           }
         }
@@ -89,7 +89,8 @@ class PerformanceMonitor {
     try {
       const ttfbObserver = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          this.metrics.ttfb = entry.responseStart - entry.requestStart;
+          const navEntry = entry as PerformanceNavigationTiming;
+          this.metrics.ttfb = navEntry.responseStart - navEntry.requestStart;
         }
       });
       ttfbObserver.observe({ entryTypes: ['navigation'] });

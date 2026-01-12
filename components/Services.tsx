@@ -135,7 +135,7 @@ const Services = () => {
                             trigger.kill();
                         }
                     });
-                    gsap.killTweensOf([subtitleRef.current, titleRef.current, ...titleChars, ...validCards]);
+                    gsap.killTweensOf([subtitleRef.current, titleRef.current, ...validCards]);
                 };
             });
         });
@@ -155,7 +155,7 @@ const Services = () => {
                 {/* Services Cards - Static Grid Layout */}
                 <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {services.map((service, index) => (
-                        <div key={service.title} ref={el => serviceCardRefs.current[index] = el} className="group">
+                        <div key={service.title} ref={el => { serviceCardRefs.current[index] = el }} className="group">
                             {/* Enhanced Glassmorphism Card */}
                             <div className="relative bg-white/[0.08] backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/[0.12] hover:border-white/20 hover:shadow-2xl h-full">
                                 {/* Subtle inner shadow for depth */}

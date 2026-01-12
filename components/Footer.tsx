@@ -19,7 +19,7 @@ const Footer = () => (
             </div>
             <div className="mt-8 sm:mt-12 border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
                 <div></div>
-                <p className="text-xs sm:text-sm text-white">© 2024 SASEK Labs. All rights reserved.</p>
+                <p className="text-xs sm:text-sm text-white">© 2026 SASEK Labs. All rights reserved.</p>
             </div>
         </div>
     </footer>
